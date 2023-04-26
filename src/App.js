@@ -1,12 +1,15 @@
+import React from 'react';
 import './App.css';
 import KeyRing from './KeyRing';
 
-function App() {
-  return (
-    <div className="App">
-      <KeyRing />
-    </div>
-  );
-}
+class App extends React.Component {
+  render() {
+    return (
+      <div className='App'>
+        <KeyRing />
+      </div>
+      );
+    }
+  }
 
 export default App;
