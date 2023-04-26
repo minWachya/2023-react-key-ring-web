@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 import KeyRing from './KeyRing';
 import AddKeyRing from './AddKeyRing';
 import SearchKeyRing from './SearchKeyRing';
