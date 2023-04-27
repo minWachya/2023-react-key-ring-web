@@ -7,15 +7,15 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: {id:"d", title:"dd", detail:"asd", imgUrl: "https://onemorebag.kr/web/upload/NNEditor/20230410/IMG_4258.jpg" },
+      item: {id:"id", title:"강아지 키링", userId: "MinYoung", detail:"멍멍이 소리가 나요", imgUrl: "https://onemorebag.kr/web/upload/NNEditor/20230410/IMG_4258.jpg" },
     };
   }
 
   render() {
     return (
       <div className='App'>
-        <Menu item={this.state.item}/>
-        <KeyRing />
+        <Menu />
+        <KeyRing item={this.state.item}/>
       </div>
       );
     }

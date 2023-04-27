@@ -12,7 +12,7 @@ import DeleteKeyRing from './DeleteKeyRing';
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {item: props.item, expanded: "init"};
+    this.state = {expanded: "init"};
   } 
 
   handleChange = (panel) => (event, isExpanded) => {

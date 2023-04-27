@@ -1,16 +1,23 @@
 import React from "react";
 
 class KeyRing extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {item: props.item};
+    }; 
+
     render() {
         return (
             <div className="KeyRing">
                 <img 
-                    src="https://onemorebag.kr/web/upload/NNEditor/20230410/IMG_4258.jpg" 
-                    alt="키링 이미지"
+                    src={this.state.item.imgUrl} 
+                    alt={this.state.item.title} 
                     width="200" 
                     height="200"
                     />
-                <label for="kr1">푸딩 키링</label>
+                <label for="kr1">{this.state.item.uerId} </label>
+                <label for="kr1">{this.state.item.title} </label>
+                <label for="kr1">{this.state.item.detail} </label>
             </div>
         );
     }
