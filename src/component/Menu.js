@@ -15,6 +15,7 @@ class Menu extends React.Component {
     this.state = {expanded: "init"};
     this.add = props.add;
     this.delete = props.delete;
+    this.modify = props.modify;
   } 
 
   handleChange = (panel) => (event, isExpanded) => {
@@ -55,7 +56,7 @@ class Menu extends React.Component {
           <Typography>키링 수정</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <ModifyKeyRing />
+          <ModifyKeyRing modify={this.modify}/>
         </AccordionDetails>
       </Accordion>
 

@@ -29,6 +29,13 @@ class App extends React.Component {
     this.setState({items: newItems});
   }
 
+  // 키링 수정
+  modify = (item) => {
+    const tempItems = this.state.items;
+    tempItems.find(e => e.id !== item.id).modify({item});
+    this.setState({items: tempItems});
+  }
+
   render() {
     var keyRingItems = this.state.items.map(
       (item, index) => (
@@ -41,6 +48,7 @@ class App extends React.Component {
         <Menu 
           add={this.add}
           delete={this.delete}
+          modify={this.modify}
         />
         {keyRingItems}
       </div>
