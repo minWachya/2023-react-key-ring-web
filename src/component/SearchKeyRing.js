@@ -19,18 +19,12 @@ class SearchKeyRing extends React.Component {
                             <ListItem>
                                 <ListItemText primary="title" style={{textAlign: "center"}}/>
                             </ListItem>
-                        </List>
-                        <List>
                             <ListItem>
                                 <ListItemText primary="userId" style={{textAlign: "center"}}/>
                             </ListItem>
-                        </List>
-                        <List>
                             <ListItem>
                                 <ListItemText primary="detail" style={{textAlign: "center"}}/>
                             </ListItem>
-                        </List>
-                        <List>
                             <ListItem>
                                 <ListItemText primary="imgUrl" style={{textAlign: "center"}}/>
                             </ListItem>
