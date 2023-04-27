@@ -13,6 +13,7 @@ class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {expanded: "init"};
+    this.add = props.add;
   } 
 
   handleChange = (panel) => (event, isExpanded) => {
@@ -29,7 +30,7 @@ class Menu extends React.Component {
           <Typography>키링 생성</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AddKeyRing />
+          <AddKeyRing add={this.add}/>
         </AccordionDetails>
       </Accordion>
 

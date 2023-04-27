@@ -13,6 +13,14 @@ class App extends React.Component {
       ]
     };
   }
+  
+  // 키링 생성
+  add = (item) => {
+    const tempItems = this.state.items;
+    item.id = "id" + tempItems.length;
+    tempItems.push(item);
+    this.setState({items: tempItems});
+  }
 
   render() {
     var keyRingItems = this.state.items.map(
@@ -23,7 +31,9 @@ class App extends React.Component {
 
     return (
       <div className='App'>
-        <Menu />
+        <Menu 
+          add={this.add}
+        />
         {keyRingItems}
       </div>
       );
