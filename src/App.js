@@ -1,8 +1,8 @@
 import React from 'react';
-import '../App.css';
-import KeyRing from './KeyRing';
-import AddKeyRing from './AddKeyRing';
-import SearchKeyRing from './SearchKeyRing';
+import './App.css';
+import KeyRing from './component/KeyRing';
+import AddKeyRing from './component/AddKeyRing';
+import SearchKeyRing from './component/SearchKeyRing';
 
 class App extends React.Component {
   render() {
