@@ -18,7 +18,7 @@ class Menu extends React.Component {
   } 
 
   handleChange = (panel) => (event, isExpanded) => {
-    this.setState({expanded: panel})
+    this.setState({expanded: (panel === this.state.expanded)? "init" : panel})
   };
   
   render() {
