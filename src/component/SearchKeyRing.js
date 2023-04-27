@@ -1,9 +1,5 @@
 import React from "react";
-import { TextField, Paper, Button, Grid, ListItem, List, ListItemText, styled } from "@material-ui/core";
-
-const Demo = styled('div')(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
-  }));
+import { TextField, Paper, Button, ListItem, List, ListItemText } from "@material-ui/core";
 
 class SearchKeyRing extends React.Component {
     render() {
@@ -15,35 +11,32 @@ class SearchKeyRing extends React.Component {
                  </div>
 
                  <Button color="secondary" variant="contained">키링 검색</Button>
-
-                 <Grid container>
-                    <Grid item xs={12} md={6}>
-                    <Demo>
+                 
+                 <div style={{margin: 16, padding: 16}} class="row">
+                    <h5>-검색 결과-</h5>
+                    <div>
                         <List>
                             <ListItem>
-                                <ListItemText primary="title"/>
+                                <ListItemText primary="title" style={{textAlign: "center"}}/>
                             </ListItem>
                         </List>
                         <List>
                             <ListItem>
-                                <ListItemText primary="userId"/>
+                                <ListItemText primary="userId" style={{textAlign: "center"}}/>
                             </ListItem>
                         </List>
                         <List>
                             <ListItem>
-                                <ListItemText primary="detail"/>
+                                <ListItemText primary="detail" style={{textAlign: "center"}}/>
                             </ListItem>
                         </List>
                         <List>
                             <ListItem>
-                                <ListItemText primary="imgUrl"/>
+                                <ListItemText primary="imgUrl" style={{textAlign: "center"}}/>
                             </ListItem>
                         </List>
-                    </Demo>
-                    </Grid>
-                </Grid>
-
-
+                    </div>
+                </div>
             </Paper>
         );
     }
