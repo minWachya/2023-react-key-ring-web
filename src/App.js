@@ -3,6 +3,7 @@ import './App.css';
 import KeyRing from './component/KeyRing';
 import AddKeyRing from './component/AddKeyRing';
 import SearchKeyRing from './component/SearchKeyRing';
+import ModifyKeyRing from './component/ModifyKeyRing';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <div>
           <AddKeyRing />
           <SearchKeyRing />
+          <ModifyKeyRing />
         </div>
       
         <KeyRing />

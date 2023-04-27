@@ -14,7 +14,7 @@ class SearchKeyRing extends React.Component {
                     <div style={{marginBottom: 5}}><TextField id="outlined-basic" label="title" variant="outlined" /></div>
                  </div>
 
-                 <Button color="secondary" variant="contained">키링 생성</Button>
+                 <Button color="secondary" variant="contained">키링 검색</Button>
 
                  <Grid container>
                     <Grid item xs={12} md={6}>
