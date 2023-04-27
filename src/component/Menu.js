@@ -9,62 +9,67 @@ import SearchKeyRing from './SearchKeyRing';
 import ModifyKeyRing from './ModifyKeyRing';
 import DeleteKeyRing from './DeleteKeyRing';
 
-export default function Menu() {
-    const [expanded, setExpanded] = React.useState(false);
+class Menu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {item: props.item, expanded: "init"};
+  } 
+
+  handleChange = (panel) => (event, isExpanded) => {
+    this.setState({expanded: panel})
+  };
   
-    const handleChange = (panel) => (event, isExpanded) => {
-      setExpanded(isExpanded ? panel : false);
-    };
-  
-    return (
-      <div>
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1bh-content"
-            id="panel1bh-header">
-            <Typography>키링 생성</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <AddKeyRing />
-          </AccordionDetails>
-        </Accordion>
+  render() {
+    return <div>
+      <Accordion expanded={this.state.expanded === 'panel1'} onChange={this.handleChange('panel1')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header">
+          <Typography>키링 생성</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <AddKeyRing />
+        </AccordionDetails>
+      </Accordion>
 
-        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2bh-content"
-            id="panel2bh-header">
-            <Typography>키링 검색</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <SearchKeyRing />
-          </AccordionDetails>
-        </Accordion>
+      <Accordion expanded={this.state.expanded === 'panel2'} onChange={this.handleChange('panel2')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"            
+          id="panel2bh-header">
+          <Typography>키링 검색</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <SearchKeyRing />
+        </AccordionDetails>
+      </Accordion>
 
-        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3bh-content"
-            id="panel3bh-header">
-            <Typography>키링 수정</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <ModifyKeyRing />
-          </AccordionDetails>
-        </Accordion>
+      <Accordion expanded={this.state.expanded === 'panel3'} onChange={this.handleChange('panel3')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel3bh-header">
+          <Typography>키링 수정</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ModifyKeyRing />
+        </AccordionDetails>
+      </Accordion>
 
-        <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel4bh-content"
-            id="panel4bh-header">
-            <Typography>키링 삭제</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <DeleteKeyRing />
-          </AccordionDetails>
-        </Accordion>
-      </div>
-    );
-  }
+      <Accordion expanded={this.state.expanded === 'panel4'} onChange={this.handleChange('panel4')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel4bh-content"
+          id="panel4bh-header">
+          <Typography>키링 삭제</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <DeleteKeyRing />
+        </AccordionDetails>
+      </Accordion>
+    </div>
+  };
+}
+
+export default Menu;
