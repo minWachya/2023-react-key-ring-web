@@ -1,6 +1,5 @@
 import React from "react";
-import {ListItem, ListItemText, ListItemSecondaryAction, IconButton} from "@material-ui/core";
-import { DeleteOutlined } from "@material-ui/icons";
+import {ListItem, ListItemText} from "@material-ui/core";
 
 class KeyRing extends React.Component {
     constructor(props) {
@@ -18,16 +17,11 @@ class KeyRing extends React.Component {
                     alt={item.title} 
                     width="100" 
                     height="100"
+                    style={{marginRight: 15}}
                     />
                 <ListItemText>{item.userId}</ListItemText>
                 <ListItemText>{item.title}</ListItemText>
                 <ListItemText>{item.detail}</ListItemText>
-                <ListItemSecondaryAction>
-                    <IconButton aria-label="Delete Todo"
-                        onClick={this.deleteEventHandler}>
-                        <DeleteOutlined />
-                    </IconButton>
-                </ListItemSecondaryAction>
             </ListItem>
         );
     }

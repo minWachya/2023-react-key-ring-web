@@ -84,18 +84,21 @@ class App extends React.Component {
             />
           </Grid>
           <Grid item xs={12} sm={4}>
-            <Grid container spacing={1}>
-              {keyRingItems}
-            </Grid>
+            {keyRingItems}
           </Grid>
-          <Grid item xs={12} sm={5}>
+          <Grid item xs={12} sm={4}>
             <table border="1">
-              <th>id</th>
-              <th>userId</th>
-              <th>title</th>
-              <th>detail</th>
-              <th>imgUrl</th>
-              {tableItems}
+              <caption>KeyRing item table</caption>
+              <thead>
+                <th>id</th>
+                <th>userId</th>
+                <th>title</th>
+                <th>detail</th>
+                <th>imgUrl</th>
+              </thead>
+              <tbody>
+                {tableItems}
+              </tbody>
             </table>
           </Grid>
       </Grid>
