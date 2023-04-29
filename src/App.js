@@ -50,6 +50,22 @@ class App extends React.Component {
         </List>
     );
 
+    var tableItems = this.state.items.length > 0 ? this.state.items.map((item, idx) => (
+          <tr>
+            <td>{item.id}</td>
+            <td>{item.userId}</td>
+            <td>{item.title}</td>
+            <td>{item.detail}</td>
+            <td><img src={item.imgUrl} 
+                    alt={item.title} 
+                    width="50" 
+                    height="50" /></td>
+          </tr>
+          )) : [];
+
+
+        
+
     return (
       <div className='App'>
         <Grid container spacing={1}>
@@ -59,10 +75,20 @@ class App extends React.Component {
               delete={this.delete}
             />
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item xs={12} sm={4}>
             <Grid container spacing={1}>
               {keyRingItems}
             </Grid>
+          </Grid>
+          <Grid item xs={12} sm={5}>
+            <table border="1">
+              <th>id</th>
+              <th>userId</th>
+              <th>title</th>
+              <th>detail</th>
+              <th>imgUrl</th>
+              {tableItems}
+            </table>
           </Grid>
       </Grid>
       </div>

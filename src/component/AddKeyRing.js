@@ -36,9 +36,8 @@ class AddKeyRing extends React.Component {
 
     render() {
         return (
-            <Paper style={{margin: 16, padding: 16}}>
+            <Paper style={{padding: 16}}>
                 <div class="row">
-                    <h2>&lt;키링 생성&gt;</h2>
                     <div style={{marginBottom: 5}}>
                         <TextField 
                             id="outlined-basic" label="title" variant="outlined" 

@@ -31,7 +31,6 @@ class SearchKeyRing extends React.Component {
         return (
             <Paper style={{margin: 16, padding: 16}}>
                 <div class="row">
-                    <h2>&lt;키링 검색&gt;</h2>
                     <div style={{marginBottom: 5}}>
                         <TextField id="outlined-basic" label="title" variant="outlined"
                             value={this.state.item.title}
