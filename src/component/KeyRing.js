@@ -19,12 +19,12 @@ class KeyRing extends React.Component {
                     width="100" 
                     height="100"
                     />
-                <ListItemText>{item.uerId}</ListItemText>
+                <ListItemText>{item.userId}</ListItemText>
                 <ListItemText>{item.title}</ListItemText>
                 <ListItemText>{item.detail}</ListItemText>
                 <ListItemSecondaryAction>
                     <IconButton aria-label="Delete Todo"
-                    onClick={this.deleteEventHandler}>
+                        onClick={this.deleteEventHandler}>
                         <DeleteOutlined />
                     </IconButton>
                 </ListItemSecondaryAction>

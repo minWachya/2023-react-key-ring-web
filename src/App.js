@@ -3,6 +3,7 @@ import './App.css';
 import KeyRing from './component/KeyRing';
 import Menu from './component/Menu';
 import { call } from "./service/ApiService";
+import {Paper, List, Grid} from "@material-ui/core";
 
 class App extends React.Component {
   constructor(props) {
@@ -34,19 +35,36 @@ class App extends React.Component {
   };
 
   render() {
-    var keyRingItems = this.state.items.map(
-      (item, index) => (
-        <KeyRing item={item} />
-      )
+    var keyRingItems = this.state.items.length > 0 && (
+      <List>
+          {this.state.items.map((item, idx) => (
+            <Paper style={{margin: 16}}>
+              <KeyRing 
+                item={item} 
+                key={item.id} 
+                delete={this.delete}
+                update={this.update}
+                />
+              </Paper>
+            ))}
+        </List>
     );
 
     return (
       <div className='App'>
-        <Menu 
-          add={this.add}
-          delete={this.delete}
-        />
-        {keyRingItems}
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={3}>
+            <Menu 
+              add={this.add}
+              delete={this.delete}
+            />
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <Grid container spacing={1}>
+              {keyRingItems}
+            </Grid>
+          </Grid>
+      </Grid>
       </div>
       );
     }
