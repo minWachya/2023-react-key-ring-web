@@ -5,7 +5,7 @@ import { call } from "../service/ApiService";
 class SearchKeyRing extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {item: {title: ""}, searchItem: {title: "dd", userId: "ddd", detail: "df", imgUrl: "df"}};
+        this.state = {item: {title: ""}, searchItem: {title: "title", userId: "userId", detail: "detail", imgUrl: "imgUrl"}};
     };
 
     // 키링 검색
