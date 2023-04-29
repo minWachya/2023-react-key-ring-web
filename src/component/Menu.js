@@ -14,8 +14,8 @@ class Menu extends React.Component {
     super(props);
     this.state = {expanded: "init"};
     this.add = props.add;
-    this.delete = props.delete;
     this.modify = props.modify;
+    this.delete = props.delete;
   } 
 
   handleChange = (panel) => (event, isExpanded) => {
