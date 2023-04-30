@@ -12,16 +12,20 @@ class KeyRing extends React.Component {
 
         return (
             <ListItem>
-                <img 
+                    <img 
                     src={item.imgUrl} 
                     alt={item.title} 
                     width="100" 
                     height="100"
                     style={{marginRight: 15}}
                     />
-                <ListItemText>{item.userId}</ListItemText>
-                <ListItemText>{item.title}</ListItemText>
-                <ListItemText>{item.detail}</ListItemText>
+                <ListItemText>
+                    <b>{item.title}</b>    
+                </ListItemText>
+                <ListItemText>
+                    {item.detail}
+                </ListItemText>
+                <ListItemText style={{marginTop:10}}>{item.userId}</ListItemText>
             </ListItem>
         );
     }
