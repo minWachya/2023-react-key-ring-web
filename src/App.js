@@ -31,7 +31,11 @@ class App extends React.Component {
   modify = (item) => {
     call("/keyring", "PUT", item).then((response) => 
       this.setState({items: response.data})
+    ).then((response) => {
+      call("/keyring", "GET", null).then((response) => 
+      this.setState({items: response.data})
     );
+    });
   };
 
   // 키링 삭제: Menu의 DeleteKeyRing에 전달
