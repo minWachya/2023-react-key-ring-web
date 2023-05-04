@@ -55,7 +55,15 @@ class SearchKeyRing extends React.Component {
                                 <ListItemText primary={searchItem.detail} style={{textAlign: "center"}}/>
                             </ListItem>
                             <ListItem>
-                                <ListItemText primary={searchItem.imgUrl} style={{textAlign: "center"}}/>
+                            <ListItemText style={{textAlign: "center"}}>
+                            <img 
+                                    src={searchItem.imgUrl} 
+                                    alt={searchItem.title} 
+                                    width="100" 
+                                    height="100"
+                                    style={{marginRight: 15}}
+                                    />
+                            </ListItemText>
                             </ListItem>
                         </List>
                     </div>
