@@ -8,6 +8,7 @@ import {Paper, List, Grid} from "@material-ui/core";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    // 키링 아이템 배열
     this.state = {
       items: [],
     };
@@ -15,6 +16,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    // 키링 목록 불러오기
     call("/keyring", "GET", null).then((response) => 
       this.setState({items: response.data})
     );
@@ -46,6 +48,7 @@ class App extends React.Component {
   };
 
   render() {
+    // MUI 키링 아이템
     var keyRingItems = this.state.items.length > 0 && (
       <List>
           {this.state.items.map((item, idx) => (
@@ -61,6 +64,7 @@ class App extends React.Component {
         </List>
     );
 
+    // 테이블 키링 아이템
     var tableItems = this.state.items.length > 0 ? this.state.items.map((item, idx) => (
           <tr>
             <td>{item.id}</td>
@@ -72,25 +76,27 @@ class App extends React.Component {
                     width="50" 
                     height="50" /></td>
           </tr>
-          )) : [];
-
-
-        
+          )) : [];  
 
     return (
       <div className='App'>
         <Grid container spacing={1}>
           <Grid item xs={12} sm={3}>
+            {/* 생성/수정/삭제/검색 UI */}
             <Menu 
               add={this.add}
               modify={this.modify}
               delete={this.delete}
             />
           </Grid>
+
           <Grid item xs={12} sm={4}>
+            {/* MUI 키링 아이템 */}
             {keyRingItems}
           </Grid>
+          
           <Grid item xs={12} sm={4}>
+            {/* 테이블 키링 아이템 */}
             <table border="1">
               <caption>KeyRing item table</caption>
               <thead>
@@ -105,6 +111,7 @@ class App extends React.Component {
               </tbody>
             </table>
           </Grid>
+
       </Grid>
       </div>
       );

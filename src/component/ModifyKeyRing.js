@@ -2,26 +2,30 @@ import React from "react";
 import { TextField, Paper, Button } from "@material-ui/core";
 import { call } from "../service/ApiService";
 
+// 키링 수정 컴포넌트
 class ModifyKeyRing extends React.Component {
     constructor(props) {
         super(props);
+        // 수정할 키링 정보 상태
         this.state = {item: {title: ""}, searchItem: {title: "", userId: "", detail: "", imgUrl: ""}};
+        // App > Menu 로부터 받아온 수정 함수
         this.modify = props.modify;
     };
 
     // 키링 검색
     search = (item) => {
         call("/keyring/search", "POST", item).then((response) => 
-        this.setState({searchItem: response.data[0]})
+            this.setState({searchItem: response.data[0]})
         );
-        console.log(this.state.searchItem)
     };
 
+    // 수정할 키링 검색을 위한 title textField value 관리 함수 
     onInputChangeTitle = (event) => {
         const thisItem = this.state.item;
         thisItem.title = event.target.value;
         this.setState({item: thisItem});
     };
+    // 수정할 키링 정보 작성을 위한 title, detail, userId, imgUrl textField value 함수 관리
     onInputChangeModTitle = (event) => {
         const thisItem = this.state.searchItem;
         thisItem.title = event.target.value;
@@ -43,10 +47,12 @@ class ModifyKeyRing extends React.Component {
         this.setState({searchItem: thisItem});
     };
 
+    // 수정할 키링 검색 버튼 함수
     onSearchButtonClick = () => {
         this.search(this.state.item); 
     };
 
+    // 키링 수정 버튼 함수
     onModifyButtonClick = () => {
         this.modify(this.state.searchItem); 
         this.setState({item: {title: ""}, searchItem: {title: "", userId: "", detail: "", imgUrl: ""}}); 
@@ -55,6 +61,7 @@ class ModifyKeyRing extends React.Component {
     render() {
         return (
             <Paper style={{margin: 16, padding: 16}}>
+                {/* 수정할 키링 title textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
                         <TextField id="outlined-basic" label="title" variant="outlined" 
@@ -63,8 +70,10 @@ class ModifyKeyRing extends React.Component {
                         />
                         </div>
                  </div>
+                 {/* 키링 검색 버튼 */}
                  <Button onClick={this.onSearchButtonClick} color="secondary" variant="contained">키링 검색</Button>
 
+                {/* 키링 수정 정보 textField */}
                 <div style={{margin: 16, padding: 16}}>
                     <div class="row">
                         <h5>-검색 결과-</h5>
@@ -89,6 +98,7 @@ class ModifyKeyRing extends React.Component {
                             onChange={this.onInputChangeModImgUrl}/>
                         </div>
                     </div>
+                    {/* 키링 수정 버튼 */}
                     <Button onClick={this.onModifyButtonClick} color="secondary" variant="contained">키링 수정</Button>
                 </div>
             </Paper>

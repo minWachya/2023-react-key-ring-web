@@ -1,18 +1,23 @@
 import React from "react";
 import { TextField, Paper, Button } from "@material-ui/core";
 
+// 키링 생성 컴포넌트
 class AddKeyRing extends React.Component {
     constructor(props) {
         super(props);
+        // 생성할 아이템 정보 상태
         this.state = {item: {title: "", userId: "", detail: "", imgUrl: ""}};
+        // App > Menu 로부터 받아온 생성 함수
         this.add = props.add;
     };
 
+    // 생성 버튼 클릭
     onButtonClick = () => {
         this.add(this.state.item);      
-        this.setState({item: {title: "", userId: "", detail: "", imgUrl: ""}}); 
+        this.setState({item: {title: "", userId: "", detail: "", imgUrl: ""}}); // 초기화
     };
 
+    // title, userId, detail, imgUrl TextField 관리
     onInputChangeTitle = (event) => {
         const thisItem = this.state.item;
         thisItem.title = event.target.value;
@@ -37,6 +42,7 @@ class AddKeyRing extends React.Component {
     render() {
         return (
             <Paper style={{padding: 16}}>
+                {/* 키링 정보 입력창 */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
                         <TextField 
@@ -64,8 +70,9 @@ class AddKeyRing extends React.Component {
                         />
                         </div>
                  </div>
-
-                 <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 생성</Button>
+                
+                {/* 키링 생성 버튼 */}
+                <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 생성</Button>
             </Paper>
         );
     }

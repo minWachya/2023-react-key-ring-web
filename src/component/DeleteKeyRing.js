@@ -2,27 +2,33 @@ import React from "react";
 import { TextField, Paper, Button } from "@material-ui/core";
 import { call } from "../service/ApiService";
 
+// 키링 삭제 컴포넌트
 class DeleteKeyRing extends React.Component {
     constructor(props) {
         super(props);
+        // 삭제할 아이템 title 상태
         this.state = {item: {title: ""}};
+        // App > Menu 로부터 받아온 삭제 함수
         this.delete = props.delete;
     };
 
-    // 키링 검색 후 삭제
+    // 키링 검색 후 삭제하는 함수
     search = (item) => {
-        console.log(item);
+        // 검색
         call("/keyring/search", "POST", item).then((response) => 
-        this.delete(response.data[0])
+            // 삭제
+            this.delete(response.data[0])
         );
     };
 
+    // 삭제할 키링 title textField value 관리 함수
     onInputChangeTitle = (event) => {
         const thisItem = this.state.item;
         thisItem.title = event.target.value;
         this.setState({item: thisItem});
     };
 
+    // 삭제 버튼 클릭 함수
     onButtonClick = () => {
         this.search(this.state.item); 
         this.setState({item: {title: ""}}); 
@@ -31,6 +37,7 @@ class DeleteKeyRing extends React.Component {
     render() {
         return (
             <Paper style={{margin: 16, padding: 16}}>
+                {/* 삭제할 키링 title 입력 textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
                         <TextField id="outlined-basic" label="title" variant="outlined" 
@@ -39,8 +46,9 @@ class DeleteKeyRing extends React.Component {
                         />
                         </div>
                  </div>
-
-                 <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 삭제</Button>
+                
+                {/* 키링 삭제 버튼 */}
+                <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 삭제</Button>
             </Paper>
         );
     }

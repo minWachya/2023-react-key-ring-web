@@ -1,9 +1,11 @@
 import React from "react";
 import {ListItem, ListItemText} from "@material-ui/core";
 
+// 키링 데이터 모델
 class KeyRing extends React.Component {
     constructor(props) {
         super(props);
+        // 키링 아이템 정보 상태
         this.state = {item: props.item};
     }; 
 
@@ -11,6 +13,7 @@ class KeyRing extends React.Component {
         const item = this.props.item;
 
         return (
+            // 키링 img, title, detail, userId를 MUI 사용하여 출력
             <ListItem>
                     <img 
                     src={item.imgUrl} 
