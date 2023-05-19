@@ -6,8 +6,6 @@ import { Button, TextField, Link, Grid, Container, Typography } from "@material-
 class Login extends React.Component {
     constructor(props) {
         super(props);   
-        // this: Login
-        // 이거 안 하면 함수 작성 시 this가 Login이 아니라 window로 되어버림. 여기 예제에서는 필요 없긴 한데...
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
