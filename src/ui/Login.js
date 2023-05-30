@@ -10,19 +10,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-
-function Copyright(props) {
-    return (
-      <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
-        <Link color="inherit" href="https://min-wachya.tistory.com/">
-          20190054 이민영 
-        </Link>
-         {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
+import { Copyright } from "./Copyright";
 
 class Login extends React.Component {
     constructor(props) {
