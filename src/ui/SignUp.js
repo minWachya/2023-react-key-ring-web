@@ -1,6 +1,16 @@
 import React from "react";
 import { signup } from "../service/ApiService";
-import { Button, TextField, Link, Grid, Container, Typography } from "@material-ui/core";
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { Copyright } from "./Copyright";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -26,57 +36,91 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <Container component="main" maxWidth="xs" style={{marginTop: "8%"}}>
-                <form noValidate onSubmit={this.handleSubmit}>
-                    <Grid container spacing={2}>
-                         <Grid item xs={12}>
-                            <Typography component="h1" variant="h5">계정 생성</Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="username"
-                                label="사용자 이름"
-                                name="username"
-                                autoComplete="fname" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="email"
-                                label="이메일 주소"
-                                name="email"
-                                autoComplete="email" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="password"
-                                label="패스워드"
-                                name="password"
-                                autoComplete="current-pasword" />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary">계정 생성</Button>
-                        </Grid>
+            <Grid container component="main" sx={{ height: '100vh' }}>
+              <CssBaseline />
+              <Grid
+                item
+                xs={false}
+                sm={4}
+                md={7}
+                sx={{
+                  backgroundImage: 'url(https://onemorebag.kr/web/product/medium/202303/05c958ec0df831aa86a88a647111dbc4.png)',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: (t) =>
+                    t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              />
+              <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                <Box
+                  sx={{
+                    my: 8,
+                    mx: 4,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                  <Typography component="h1" variant="h5">
+                    회원가입
+                  </Typography>
+                  <Box component="form" noValidate onSubmit={this.handleSubmit} sx={{ mt: 1 }}>
+                  <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="username"
+                      label="사용자 이름"
+                      name="username"
+                      autoComplete="fname"
+                      autoFocus
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="이메일 주소"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="password"
+                      label="비밀번호"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                    />
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      회원가입
+                    </Button>
+                    <Grid container>
+                      <Grid item xs>
+                      </Grid>
+                      <Grid item>
+                        <Link href="/login" variant="body2">
+                          {"로그인"}
+                        </Link>
+                      </Grid>
                     </Grid>
-                    <Grid container justifyContent="flex-end">
-                        <Grid item>
-                            <Link href="/login" variant="body2">이미 계정이 있습니까? 로그인 하세요.</Link> 
-                        </Grid>
-                    </Grid>
-                </form>
-            </Container>
+                    <Copyright sx={{ mt: 5 }} />
+                  </Box>
+                </Box>
+              </Grid>
+            </Grid>
         );
     }
 }
