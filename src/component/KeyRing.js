@@ -1,5 +1,8 @@
 import React from "react";
-import {ListItem, ListItemText} from "@material-ui/core";
+import {Grid, Typography} from "@mui/material";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
 // 키링 데이터 모델
 class KeyRing extends React.Component {
@@ -14,22 +17,23 @@ class KeyRing extends React.Component {
 
         return (
             // 키링 img, title, detail, userId를 MUI 사용하여 출력
-            <ListItem>
-                    <img 
-                    src={item.imgUrl} 
-                    alt={item.title} 
-                    width="100" 
-                    height="100"
-                    style={{marginRight: 15}}
+            <Grid item xs={12} sm={4} md={2}>
+                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <CardMedia
+                    component="div"
+                    sx={{
+                        // 16:9
+                        pt: '56.25%',
+                    }}
+                    image={item.imgUrl}
                     />
-                <ListItemText>
-                    <b>{item.title}</b>    
-                </ListItemText>
-                <ListItemText>
-                    {item.detail}
-                </ListItemText>
-                <ListItemText style={{marginTop:10}}>{item.userId}</ListItemText>
-            </ListItem>
+                    <CardContent sx={{ flexGrow: 1 }}>
+                        <Typography gutterBottom variant="h5" component="h3">{item.title}</Typography>
+                        <Typography>{item.detail}</Typography>
+                        <Typography>{item.userId}</Typography>
+                    </CardContent>
+                </Card>
+        </Grid>
         );
     }
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import KeyRing from './component/KeyRing';
 import Menu from './component/Menu';
 import { call, signout } from "./service/ApiService";
-import {Paper, List, Grid, Toolbar, Typography, CssBaseline} from "@mui/material";
+import {Paper, Grid, Toolbar, Typography, CssBaseline} from "@mui/material";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -19,6 +18,7 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import KeyRing from './component/KeyRing';
 
 class App extends React.Component {
   constructor(props) {
@@ -70,23 +70,16 @@ class App extends React.Component {
   };
 
   render() {
-    // MUI 키링 아이템
+    // 키링 아이템
     var keyRingItems = this.state.items.length > 0 && (
-      <List>
-          {this.state.items.map((item, idx) => (
-            <Paper style={{margin: 16}}>
-              <KeyRing 
-                item={item} 
-                key={item.id} 
-                delete={this.delete}
-                update={this.update}
-                />
-              </Paper>
-            ))}
-        </List>
+      <Grid container spacing={4}>
+      {this.state.items.map((item, idx) => (
+        <KeyRing item={item} key={item.id}/>
+      ))}
+    </Grid>
     );
 
-    // 테이블 키링 아이템
+    // 키링 테이블
     var keyRingTable = (
       <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -117,9 +110,8 @@ class App extends React.Component {
       </Paper>
     ); 
 
-      
-
-    var navigationBar = (
+    // 앱 바
+    var keyRingAppBar = (
       <KeyRingAppBar position="absolute" open={this.state.open}>
           <Toolbar
             sx={{
@@ -158,8 +150,9 @@ class App extends React.Component {
     var keyringListPage = (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        {/* 네비게이션: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
-        {navigationBar}
+        {/* AppBar: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
+        {keyRingAppBar}
+
         {/* 키링 생성/검색/수정/삭제 메뉴 드로어 */}
         <MenuDrawer variant="permanent" open={this.state.open}>
           <Toolbar
@@ -178,7 +171,6 @@ class App extends React.Component {
              modify={this.modify}
              delete={this.delete}/>
         </MenuDrawer>
-
         <Box
           component="main"
           sx={{
@@ -191,6 +183,7 @@ class App extends React.Component {
             overflow: 'auto',
           }}>
           <Toolbar />
+
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={2}>
               {/* 아이템 리스트 */}
@@ -220,10 +213,8 @@ class App extends React.Component {
 
     // 로딩 중일 때: 로딩 화면
     var loadingPage = <h1>로딩중...</h1>;
-
     // 기본 컨텐츠를 로딩 화면으로 초기화
     var content = loadingPage;
-
     if(!this.state.loading) {
       content = keyringListPage;
     }
