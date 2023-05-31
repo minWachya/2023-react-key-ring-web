@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Paper, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { call } from "../service/ApiService";
 
 // 키링 수정 컴포넌트
@@ -60,7 +60,7 @@ class ModifyKeyRing extends React.Component {
 
     render() {
         return (
-            <Paper style={{margin: 16, padding: 16}}>
+            <div style={{margin: 16, padding: 16}} className="App">
                 {/* 수정할 키링 title textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -101,7 +101,7 @@ class ModifyKeyRing extends React.Component {
                     {/* 키링 수정 버튼 */}
                     <Button onClick={this.onModifyButtonClick} color="secondary" variant="contained">키링 수정</Button>
                 </div>
-            </Paper>
+            </div>
         );
     }
 }

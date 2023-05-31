@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Paper, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { call } from "../service/ApiService";
 
 // 키링 삭제 컴포넌트
@@ -36,7 +36,7 @@ class DeleteKeyRing extends React.Component {
 
     render() {
         return (
-            <Paper style={{margin: 16, padding: 16}}>
+            <div style={{margin: 16, padding: 16}} className="App">
                 {/* 삭제할 키링 title 입력 textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -49,7 +49,7 @@ class DeleteKeyRing extends React.Component {
                 
                 {/* 키링 삭제 버튼 */}
                 <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 삭제</Button>
-            </Paper>
+            </div>
         );
     }
 }

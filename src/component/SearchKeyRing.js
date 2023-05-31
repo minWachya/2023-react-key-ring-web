@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Paper, Button, ListItem, List, ListItemText } from "@material-ui/core";
+import { TextField, Button, ListItem, List, ListItemText } from "@material-ui/core";
 import { call } from "../service/ApiService";
 
 // 키링 검색 컴포넌트
@@ -34,7 +34,7 @@ class SearchKeyRing extends React.Component {
         const searchItem = this.state.searchItem;
 
         return (
-            <Paper style={{margin: 16, padding: 16}}>
+            <div style={{margin: 16, padding: 16}} className="App">
                 {/* 검색할 키링 title TextField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -75,7 +75,7 @@ class SearchKeyRing extends React.Component {
                         </List>
                     </div>
                 </div>
-            </Paper>
+            </div>
         );
     }
 }

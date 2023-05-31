@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import Menu from './component/Menu';
 import { call, signout } from "./service/ApiService";
-import {Paper, Grid, Toolbar, Typography, CssBaseline} from "@mui/material";
+import {Paper, Grid, Toolbar, Typography, CssBaseline, List} from "@mui/material";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -19,6 +18,8 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import KeyRing from './component/KeyRing';
+import { menuListItems } from './ui/MenuItemList';
+import Menu from './component/Menu';
 
 class App extends React.Component {
   constructor(props) {
@@ -88,16 +89,18 @@ class App extends React.Component {
         <Table size="small">
           <TableHead>
             <TableRow>
+              <TableCell>Index</TableCell>
               <TableCell>ID</TableCell>
               <TableCell>UserId</TableCell>
               <TableCell>Title</TableCell>
               <TableCell>Detail</TableCell>
-              <TableCell align="right">ImgUrl</TableCell>
+              <TableCell>ImgUrl</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>{
             this.state.items.length > 0 ? this.state.items.map((item, idx) => (
                 <TableRow key={item.id}>
+                  <TableCell>{idx + 1}</TableCell>
                   <TableCell>{item.id}</TableCell>
                   <TableCell>{item.userId}</TableCell>
                   <TableCell>{item.title}</TableCell>
@@ -147,7 +150,8 @@ class App extends React.Component {
         </KeyRingAppBar>
         );
 
-    var keyringListPage = (
+    // 메인 페이지
+    var mainPage = (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         {/* AppBar: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
@@ -166,10 +170,13 @@ class App extends React.Component {
             <IconButton onClick={this.setOpen}> <ChevronLeftIcon /> </IconButton>
           </Toolbar>
           <Divider />
-          <Menu 
+          <Menu
              add={this.add}
              modify={this.modify}
              delete={this.delete}/>
+           <List component="nav">
+            {menuListItems}
+          </List>
         </MenuDrawer>
         <Box
           component="main"
@@ -184,6 +191,7 @@ class App extends React.Component {
           }}>
           <Toolbar />
 
+          {/* 메인 화면 */}
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={2}>
               {/* 아이템 리스트 */}
@@ -216,7 +224,7 @@ class App extends React.Component {
     // 기본 컨텐츠를 로딩 화면으로 초기화
     var content = loadingPage;
     if(!this.state.loading) {
-      content = keyringListPage;
+      content = mainPage;
     }
 
     return (

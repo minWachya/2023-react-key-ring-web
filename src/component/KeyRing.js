@@ -3,6 +3,7 @@ import {Grid, Typography} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Divider from '@mui/material/Divider';
 
 // 키링 데이터 모델
 class KeyRing extends React.Component {
@@ -29,6 +30,7 @@ class KeyRing extends React.Component {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h3">{item.title}</Typography>
+                        <Divider sx={{ my: 1 }} />
                         <Typography>{item.detail}</Typography>
                         <Typography>{item.userId}</Typography>
                     </CardContent>

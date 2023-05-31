@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Paper, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 
 // 키링 생성 컴포넌트
 class AddKeyRing extends React.Component {
@@ -41,7 +41,7 @@ class AddKeyRing extends React.Component {
 
     render() {
         return (
-            <Paper style={{padding: 16}}>
+            <div style={{padding: 16}} className="App">
                 {/* 키링 정보 입력창 */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -73,7 +73,7 @@ class AddKeyRing extends React.Component {
                 
                 {/* 키링 생성 버튼 */}
                 <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 생성</Button>
-            </Paper>
+            </div>
         );
     }
 }
