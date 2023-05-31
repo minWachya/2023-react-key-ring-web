@@ -3,7 +3,6 @@ import './App.css';
 import KeyRing from './component/KeyRing';
 import Menu from './component/Menu';
 import { call, signout } from "./service/ApiService";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {Paper, List, Grid, Toolbar, Typography, CssBaseline} from "@mui/material";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -15,20 +14,25 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Copyright } from "./ui/Copyright";
 import { KeyRingAppBar } from "./ui/KeyRingAppBar";
 import { MenuDrawer } from "./ui/MenuDrawer";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // 키링 아이템 배열
     this.state = {
-      items: [],
-      loading: true,
-      open: true,
+      items: [],        // 키링 아이템 배열
+      loading: true,    // 로딩 여부
+      open: true,       // 드로어 여닫힘 여부
     };
+    // 드로어 열고닫는 함수
     this.setOpen = this.setOpen.bind(this);
   }
 
-  // 슬라이드 메뉴 열고닫기 관리
+  // 드로어 열고닫기 관리
   setOpen() {
     this.setState({open: !this.state.open})
 }
@@ -84,17 +88,40 @@ class App extends React.Component {
 
     // 테이블 키링 아이템
     var tableItems = this.state.items.length > 0 ? this.state.items.map((item, idx) => (
-          <tr>
-            <td>{item.id}</td>
-            <td>{item.userId}</td>
-            <td>{item.title}</td>
-            <td>{item.detail}</td>
-            <td><img src={item.imgUrl} 
+      <TableRow key={item.id}>
+              <TableCell>{item.id}</TableCell>
+              <TableCell>{item.userId}</TableCell>
+              <TableCell>{item.title}</TableCell>
+              <TableCell>{item.detail}</TableCell>
+              <TableCell><img src={item.imgUrl} 
                     alt={item.title} 
                     width="50" 
-                    height="50" /></td>
-          </tr>
-          )) : [];  
+                    height="50" /></TableCell>
+            </TableRow>
+          )) : []; 
+    var keyRingTable = (
+      <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Typography component="h2" variant="h6" color="primary" gutterBottom>
+                    KeyRing item table
+                  </Typography>
+                    <Table size="small">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>ID</TableCell>
+                          <TableCell>UserId</TableCell>
+                          <TableCell>Title</TableCell>
+                          <TableCell>Detail</TableCell>
+                          <TableCell align="right">ImgUrl</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {tableItems}
+                      </TableBody>
+                    </Table>
+                </Paper>
+    ); 
+
+      
 
     var navigationBar = (
       <KeyRingAppBar position="absolute" open={this.state.open}>
@@ -133,33 +160,66 @@ class App extends React.Component {
         );
 
     var keyringListPage = (
-      <div>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        {/* 네비게이션: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
         {navigationBar}
-        <Grid container spacing={1}>
-          <Grid item xs={12} sm={4}>
-            {/* MUI 키링 아이템 */}
-            {keyRingItems}
-          </Grid>
-          
-          <Grid item xs={12} sm={4}>
-            {/* 테이블 키링 아이템 */}
-            <table border="1">
-              <caption>KeyRing item table</caption>
-              <thead>
-                <th>id</th>
-                <th>userId</th>
-                <th>title</th>
-                <th>detail</th>
-                <th>imgUrl</th>
-              </thead>
-              <tbody>
-                {tableItems}
-              </tbody>
-            </table>
-          </Grid>
+        {/* 키링 생성/검색/수정/삭제 메뉴 드로어 */}
+        <MenuDrawer variant="permanent" open={this.state.open}>
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              px: [1],
+            }}
+          >
+            <IconButton onClick={this.setOpen}> <ChevronLeftIcon /> </IconButton>
+          </Toolbar>
+          <Divider />
+          <Menu 
+             add={this.add}
+             modify={this.modify}
+             delete={this.delete}/>
+        </MenuDrawer>
 
-      </Grid>
-      </div>
+        <Box
+          component="main"
+          sx={{
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light'
+                ? theme.palette.grey[100]
+                : theme.palette.grey[900],
+            flexGrow: 1,
+            height: '100vh',
+            overflow: 'auto',
+          }}>
+          <Toolbar />
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            <Grid container spacing={2}>
+              {/* 아이템 리스트 */}
+              <Grid item xs={12}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}>
+                  {keyRingItems}
+                </Paper>
+              </Grid>
+
+               {/* 아이템 테이블 */}
+              <Grid item xs={12}>
+                {keyRingTable}
+              </Grid>
+            </Grid>
+
+            {/* 저작권 표시 코드 */}
+            <Copyright sx={{ pt: 4 }} />
+          </Container>
+        </Box>
+      </Box>
     );
 
     // 로딩 중일 때: 로딩 화면
@@ -172,90 +232,10 @@ class App extends React.Component {
       content = keyringListPage;
     }
 
-    const defaultTheme = createTheme();
-
     return (
-      <ThemeProvider theme={defaultTheme}>
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        
-        <MenuDrawer variant="permanent" open={this.state.open}>
-          <Toolbar
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              px: [1],
-            }}
-          >
-            <IconButton onClick={this.setOpen}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
-            <Menu 
-             add={this.add}
-             modify={this.modify}
-             delete={this.delete}/>
-          </List>
-        </MenuDrawer>
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: '100vh',
-            overflow: 'auto',
-          }}
-        >
-          <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* 아이템 리스트 */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  {content}
-                </Paper>
-              </Grid>
-              {/* 메뉴 */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  {tableItems}
-                </Paper>
-              </Grid>
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-          </Container>
-        </Box>
-      </Box>
-      </ThemeProvider>
-      // <div className='App'>
-      //   {content}
-      // </div>
+      <div>
+        {content}
+      </div>
     );
     }
   }
