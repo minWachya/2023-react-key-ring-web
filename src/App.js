@@ -87,38 +87,34 @@ class App extends React.Component {
     );
 
     // 테이블 키링 아이템
-    var tableItems = this.state.items.length > 0 ? this.state.items.map((item, idx) => (
-      <TableRow key={item.id}>
-              <TableCell>{item.id}</TableCell>
-              <TableCell>{item.userId}</TableCell>
-              <TableCell>{item.title}</TableCell>
-              <TableCell>{item.detail}</TableCell>
-              <TableCell><img src={item.imgUrl} 
-                    alt={item.title} 
-                    width="50" 
-                    height="50" /></TableCell>
-            </TableRow>
-          )) : []; 
     var keyRingTable = (
       <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Typography component="h2" variant="h6" color="primary" gutterBottom>
-                    KeyRing item table
-                  </Typography>
-                    <Table size="small">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>ID</TableCell>
-                          <TableCell>UserId</TableCell>
-                          <TableCell>Title</TableCell>
-                          <TableCell>Detail</TableCell>
-                          <TableCell align="right">ImgUrl</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {tableItems}
-                      </TableBody>
-                    </Table>
-                </Paper>
+        <Typography component="h2" variant="h6" color="primary" gutterBottom>
+            KeyRing item table
+        </Typography>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>UserId</TableCell>
+              <TableCell>Title</TableCell>
+              <TableCell>Detail</TableCell>
+              <TableCell align="right">ImgUrl</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{
+            this.state.items.length > 0 ? this.state.items.map((item, idx) => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.id}</TableCell>
+                  <TableCell>{item.userId}</TableCell>
+                  <TableCell>{item.title}</TableCell>
+                  <TableCell>{item.detail}</TableCell>
+                  <TableCell><img src={item.imgUrl}  alt={item.title} width="50" height="50" /></TableCell>
+                 </TableRow>
+                  )) : [] }
+          </TableBody>
+        </Table>
+      </Paper>
     ); 
 
       
