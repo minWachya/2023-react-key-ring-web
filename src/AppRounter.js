@@ -5,17 +5,7 @@ import Login from "./ui/Login";
 import SignUp from "./ui/SignUp";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {"Copyright "}
-            fsoftwareemgineer, {new Date().getFullYear()}
-            {"."}
-        </Typography>
-    );
-}
+import { Copyright } from "./ui/Copyright";
 
 class AppRouter extends React.Component {
     render() {
