@@ -72,13 +72,13 @@ class App extends React.Component {
 
   render() {
     // 키링 아이템
-    var keyRingItems = this.state.items.length > 0 && (
-      <Grid container spacing={4}>
-      {this.state.items.map((item, idx) => (
+    var keyRingItems = (this.state.items.length > 0) ? 
+    <Grid container spacing={4}>
+        {this.state.items.map((item, idx) => (
         <KeyRing item={item} key={item.id}/>
       ))}
     </Grid>
-    );
+    : <p>KeyRing이 없습니다.</p>;
 
     // 키링 테이블
     var keyRingTable = (
