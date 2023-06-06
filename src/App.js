@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { call, signout } from "./service/ApiService";
-import {Paper, Grid, Toolbar, Typography, CssBaseline, List} from "@mui/material";
+import {Paper, Grid, Toolbar, Typography, CssBaseline} from "@mui/material";
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -18,7 +18,6 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import KeyRing from './component/KeyRing';
-import { menuListItems } from './ui/MenuItemList';
 import Menu from './component/Menu';
 
 class App extends React.Component {
@@ -135,7 +134,7 @@ class App extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography
-              component="h1"
+              component="h3"
               variant="h6"
               color="inherit"
               noWrap
@@ -174,9 +173,6 @@ class App extends React.Component {
              add={this.add}
              modify={this.modify}
              delete={this.delete}/>
-           <List component="nav">
-            {menuListItems}
-          </List>
         </MenuDrawer>
         <Box
           component="main"

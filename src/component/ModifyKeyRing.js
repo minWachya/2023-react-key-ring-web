@@ -60,7 +60,7 @@ class ModifyKeyRing extends React.Component {
 
     render() {
         return (
-            <div style={{margin: 16, padding: 16}} className="App">
+            <div style={{padding: 8}} className="App">
                 {/* 수정할 키링 title textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -74,7 +74,7 @@ class ModifyKeyRing extends React.Component {
                  <Button onClick={this.onSearchButtonClick} color="secondary" variant="contained">키링 검색</Button>
 
                 {/* 키링 수정 정보 textField */}
-                <div style={{margin: 16, padding: 16}}>
+                <div style={{padding: 8}}>
                     <div class="row">
                         <h5>-검색 결과-</h5>
                         <div style={{marginBottom: 5}}>

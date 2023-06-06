@@ -1,11 +1,10 @@
 import * as React from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PeopleIcon from '@mui/icons-material/People';
-import BarChartIcon from '@mui/icons-material/BarChart';
+import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -37,7 +36,7 @@ class Menu extends React.Component {
     {/* 키링 생성 */}
     <ListItemButton>
         <ListItemIcon>
-            <DashboardIcon />
+            <AddIcon />
         </ListItemIcon>
         <Accordion expanded={this.state.expanded === 'panel1'} onChange={this.handleChange('panel1')}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}
@@ -54,9 +53,8 @@ class Menu extends React.Component {
     {/* 키링 검색 */}
     <ListItemButton>
         <ListItemIcon>
-            <ShoppingCartIcon />
+            <SearchIcon />
         </ListItemIcon>
-        <ListItemText primary="키링 검색" />
         <Accordion expanded={this.state.expanded === 'panel2'} onChange={this.handleChange('panel2')}>
         <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -73,7 +71,7 @@ class Menu extends React.Component {
     {/* 키링 수정 */}
     <ListItemButton>
         <ListItemIcon>
-            <PeopleIcon />
+            <EditIcon />
         </ListItemIcon>
         <Accordion expanded={this.state.expanded === 'panel3'} onChange={this.handleChange('panel3')}>
             <AccordionSummary
@@ -92,7 +90,7 @@ class Menu extends React.Component {
     {/* 키링 삭제 */}
     <ListItemButton>
         <ListItemIcon>
-            <BarChartIcon />
+            <DeleteForeverIcon />
         </ListItemIcon>
         <Accordion expanded={this.state.expanded === 'panel4'} onChange={this.handleChange('panel4')}>
             <AccordionSummary

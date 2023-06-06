@@ -34,7 +34,7 @@ class SearchKeyRing extends React.Component {
         const searchItem = this.state.searchItem;
 
         return (
-            <div style={{margin: 16, padding: 16}} className="App">
+            <div style={{padding: 8}} className="App">
                 {/* 검색할 키링 title TextField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>
@@ -48,7 +48,7 @@ class SearchKeyRing extends React.Component {
                 <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 검색</Button>
                  
                 {/* 키링 검색 결과 */}
-                <div style={{margin: 16, padding: 16}} class="row">
+                <div style={{padding: 8}} class="row">
                     <h5>-검색 결과-</h5>
                     <div>
                         <List>
@@ -68,7 +68,6 @@ class SearchKeyRing extends React.Component {
                                     alt={searchItem.title} 
                                     width="100" 
                                     height="100"
-                                    style={{marginRight: 15}}
                                     />
                             </ListItemText>
                             </ListItem>

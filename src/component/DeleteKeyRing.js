@@ -36,7 +36,7 @@ class DeleteKeyRing extends React.Component {
 
     render() {
         return (
-            <div style={{margin: 16, padding: 16}} className="App">
+            <div style={{padding: 8}} className="App">
                 {/* 삭제할 키링 title 입력 textField */}
                 <div class="row">
                     <div style={{marginBottom: 5}}>

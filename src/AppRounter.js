@@ -4,8 +4,6 @@ import App from "./App";
 import Login from "./ui/Login";
 import SignUp from "./ui/SignUp";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Box from "@material-ui/core/Box";
-import { Copyright } from "./ui/Copyright";
 
 class AppRouter extends React.Component {
     render() {
@@ -29,9 +27,6 @@ class AppRouter extends React.Component {
                             </Route>
                         </Switch>
                     </div>
-                    <Box mt={5}>
-                        <Copyright />
-                    </Box>
                 </Router>
             </div>
         );
