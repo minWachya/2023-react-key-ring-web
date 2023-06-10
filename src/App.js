@@ -18,7 +18,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import KeyRing from './component/KeyRing';
-import Menu from './component/Menu';
+import VerticalTabs from './ui/VerticalTabs';
 
 class App extends React.Component {
   constructor(props) {
@@ -77,7 +77,7 @@ class App extends React.Component {
         <KeyRing item={item} key={item.id}/>
       ))}
     </Grid>
-    : <p>KeyRing이 없습니다.</p>;
+    : <h5>KeyRing이 없습니다.</h5>;
 
     // 키링 테이블
     var keyRingTable = (
@@ -130,7 +130,6 @@ class App extends React.Component {
                 ...(this.state.open && { display: 'none' }),
               }}
             >
-
               <MenuIcon />
             </IconButton>
             <Typography
@@ -149,15 +148,9 @@ class App extends React.Component {
         </KeyRingAppBar>
         );
 
-    // 메인 페이지
-    var mainPage = (
-      <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        {/* AppBar: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
-        {keyRingAppBar}
-
-        {/* 키링 생성/검색/수정/삭제 메뉴 드로어 */}
-        <MenuDrawer variant="permanent" open={this.state.open}>
+    // 메뉴 바
+    var menuBar = (
+      <MenuDrawer variant="permanent" open={this.state.open}>
           <Toolbar
             sx={{
               display: 'flex',
@@ -169,11 +162,24 @@ class App extends React.Component {
             <IconButton onClick={this.setOpen}> <ChevronLeftIcon /> </IconButton>
           </Toolbar>
           <Divider />
-          <Menu
-             add={this.add}
+          <VerticalTabs
+            add={this.add}
              modify={this.modify}
-             delete={this.delete}/>
+             delete={this.delete}  />
+          
         </MenuDrawer>
+    );
+
+    // 메인 페이지
+    var mainPage = (
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        {/* AppBar: 메뉴 드로어 열고 닫기 + 로그아웃 버튼 */}
+        {keyRingAppBar}
+
+        {/* 키링 생성/검색/수정/삭제 메뉴바 */}
+        {menuBar}
+        
         <Box
           component="main"
           sx={{

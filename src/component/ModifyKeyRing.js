@@ -62,7 +62,7 @@ class ModifyKeyRing extends React.Component {
         return (
             <div style={{padding: 8}} className="App">
                 {/* 수정할 키링 title textField */}
-                <div class="row">
+                <div className="row">
                     <div style={{marginBottom: 5}}>
                         <TextField id="outlined-basic" label="title" variant="outlined" 
                             value={this.state.item.title}
@@ -75,7 +75,7 @@ class ModifyKeyRing extends React.Component {
 
                 {/* 키링 수정 정보 textField */}
                 <div style={{padding: 8}}>
-                    <div class="row">
+                    <div className="row">
                         <h5>-검색 결과-</h5>
                         <div style={{marginBottom: 5}}>
                             <TextField id="outlined-basic" label="title" variant="outlined" 

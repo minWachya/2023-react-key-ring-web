@@ -43,7 +43,7 @@ class AddKeyRing extends React.Component {
         return (
             <div style={{padding: 8}} className="App">
                 {/* 키링 정보 입력창 */}
-                <div class="row">
+                <div className="row">
                     <div style={{marginBottom: 5}}>
                         <TextField 
                             id="outlined-basic" label="title" variant="outlined" 
