@@ -32,7 +32,7 @@ class App extends React.Component {
     this.setOpen = this.setOpen.bind(this);
   }
 
-  // 드로어 열고닫기 관리
+  // 메뉴바 열고닫기 관리
   setOpen() {
     this.setState({open: !this.state.open})
 }
@@ -148,7 +148,7 @@ class App extends React.Component {
         </KeyRingAppBar>
         );
 
-    // 메뉴 바
+    // 메뉴 바(생성, 검색, 수정, 삭제)
     var menuBar = (
       <MenuDrawer variant="permanent" open={this.state.open}>
           <Toolbar
@@ -157,8 +157,7 @@ class App extends React.Component {
               alignItems: 'center',
               justifyContent: 'flex-end',
               px: [1],
-            }}
-          >
+            }}>
             <IconButton onClick={this.setOpen}> <ChevronLeftIcon /> </IconButton>
           </Toolbar>
           <Divider />
@@ -166,7 +165,6 @@ class App extends React.Component {
             add={this.add}
              modify={this.modify}
              delete={this.delete}  />
-          
         </MenuDrawer>
     );
 
