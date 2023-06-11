@@ -24,7 +24,7 @@ class KeyRing extends React.Component {
                     component="div"
                     sx={{
                         // 16:9
-                        pt: '56.25%',
+                        pt:  '56.25%',
                     }}
                     image={item.imgUrl}
                     />
@@ -32,7 +32,7 @@ class KeyRing extends React.Component {
                         <Typography gutterBottom variant="h5" component="h3">{item.title}</Typography>
                         <Divider sx={{ my: 1 }} />
                         <Typography>{item.detail}</Typography>
-                        <Typography>{item.userId}</Typography>
+                        <Typography color="#878787">{item.userId}</Typography>
                     </CardContent>
                 </Card>
         </Grid>

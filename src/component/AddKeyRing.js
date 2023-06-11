@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
+import { InputTextField } from "../ui/InputTextField";
 
 // 키링 생성 컴포넌트
 class AddKeyRing extends React.Component {
@@ -45,26 +46,26 @@ class AddKeyRing extends React.Component {
                 {/* 키링 정보 입력창 */}
                 <div className="row">
                     <div style={{marginBottom: 5}}>
-                        <TextField 
+                        <InputTextField
                             id="outlined-basic" label="title" variant="outlined" 
                         value={this.state.item.title}
                         onChange={this.onInputChangeTitle}
                         />
                     </div>
                     <div style={{marginBottom: 5}}>
-                        <TextField id="outlined-basic" label="userId" variant="outlined" 
+                        <InputTextField id="outlined-basic" label="userId" variant="outlined" 
                         value={this.state.item.userId}
                         onChange={this.onInputChangeUserId}
                         />
                         </div>
                     <div style={{marginBottom: 5}}>
-                        <TextField id="outlined-basic" label="detail" variant="outlined"
+                        <InputTextField id="outlined-basic" label="detail" variant="outlined"
                         value={this.state.item.detail}
                         onChange={this.onInputChangeDetail}
                         />
                         </div>
                     <div style={{marginBottom: 5}}>
-                        <TextField id="outlined-basic" label="imgUrl" variant="outlined" 
+                        <InputTextField id="outlined-basic" label="imgUrl" variant="outlined" 
                         value={this.state.item.imgUrl}
                         onChange={this.onInputChangeImgUrl}
                         />
@@ -72,7 +73,7 @@ class AddKeyRing extends React.Component {
                  </div>
                 
                 {/* 키링 생성 버튼 */}
-                <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 생성</Button>
+                <Button onClick={this.onButtonClick} style={{ backgroundColor: "#ff8849" }} color="secondary" variant="contained">키링 생성</Button>
             </div>
         );
     }

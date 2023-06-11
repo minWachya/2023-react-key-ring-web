@@ -1,6 +1,7 @@
 import React from "react";
-import { TextField, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { call } from "../service/ApiService";
+import { InputTextField } from "../ui/InputTextField";
 
 // 키링 수정 컴포넌트
 class ModifyKeyRing extends React.Component {
@@ -64,42 +65,42 @@ class ModifyKeyRing extends React.Component {
                 {/* 수정할 키링 title textField */}
                 <div className="row">
                     <div style={{marginBottom: 5}}>
-                        <TextField id="outlined-basic" label="title" variant="outlined" 
+                        <InputTextField id="outlined-basic" label="title" variant="outlined" 
                             value={this.state.item.title}
                             onChange={this.onInputChangeTitle}
                         />
                         </div>
                  </div>
                  {/* 키링 검색 버튼 */}
-                 <Button onClick={this.onSearchButtonClick} color="secondary" variant="contained">키링 검색</Button>
+                 <Button onClick={this.onSearchButtonClick} style={{ backgroundColor: "#ff8849" }} color="secondary" variant="contained">키링 검색</Button>
 
                 {/* 키링 수정 정보 textField */}
                 <div style={{padding: 8}}>
                     <div className="row">
                         <h5>-검색 결과-</h5>
                         <div style={{marginBottom: 5}}>
-                            <TextField id="outlined-basic" label="title" variant="outlined" 
+                            <InputTextField id="outlined-basic" label="title" variant="outlined" 
                             value={this.state.searchItem.title}
                             onChange={this.onInputChangeModTitle}/>
                         </div>
                         <div style={{marginBottom: 5}}>
-                            <TextField id="outlined-basic" label="userId" variant="outlined" 
+                            <InputTextField id="outlined-basic" label="userId" variant="outlined" 
                             value={this.state.searchItem.userId}
                             onChange={this.onInputChangeModUserId}/>
                         </div>
                         <div style={{marginBottom: 5}}>
-                            <TextField id="outlined-basic" label="detail" variant="outlined" 
+                            <InputTextField id="outlined-basic" label="detail" variant="outlined" 
                             value={this.state.searchItem.detail}
                             onChange={this.onInputChangeModDetail}/>
                         </div>
                         <div style={{marginBottom: 5}}>
-                            <TextField id="outlined-basic" label="imgUrl" variant="outlined" 
+                            <InputTextField id="outlined-basic" label="imgUrl" variant="outlined" 
                             value={this.state.searchItem.imgUrl}
                             onChange={this.onInputChangeModImgUrl}/>
                         </div>
                     </div>
                     {/* 키링 수정 버튼 */}
-                    <Button onClick={this.onModifyButtonClick} color="secondary" variant="contained">키링 수정</Button>
+                    <Button onClick={this.onModifyButtonClick} style={{ backgroundColor: "#ff8849" }} color="secondary" variant="contained">키링 수정</Button>
                 </div>
             </div>
         );

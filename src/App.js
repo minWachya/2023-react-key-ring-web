@@ -119,6 +119,7 @@ class App extends React.Component {
             sx={{
               pr: '24px', // keep right padding when drawer closed
             }}
+            style={{ background: '#69BE28' }}
           >
             <IconButton
               edge="start"

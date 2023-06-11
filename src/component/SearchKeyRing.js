@@ -1,6 +1,7 @@
 import React from "react";
-import { TextField, Button, ListItem, List, ListItemText } from "@material-ui/core";
+import { Button, ListItem, List, ListItemText } from "@material-ui/core";
 import { call } from "../service/ApiService";
+import { InputTextField } from "../ui/InputTextField";
 
 // 키링 검색 컴포넌트
 class SearchKeyRing extends React.Component {
@@ -8,7 +9,7 @@ class SearchKeyRing extends React.Component {
         super(props);
         // 검색할 키링 제목과
         // 검색된 키링 정보 상태
-        this.state = {item: {title: ""}, searchItem: {title: "title", userId: "userId", detail: "detail", imgUrl: "imgUrl"}};
+        this.state = {item: {title: ""}, searchItem: {title: "title", userId: "userId", detail: "detail", imgUrl: "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"}};
     };
 
     // 키링 검색 함수
@@ -38,14 +39,14 @@ class SearchKeyRing extends React.Component {
                 {/* 검색할 키링 title TextField */}
                 <div className="row">
                     <div style={{marginBottom: 5}}>
-                        <TextField id="outlined-basic" label="title" variant="outlined"
+                        <InputTextField id="outlined-basic" label="title" variant="outlined"
                             value={this.state.item.title}
                             onChange={this.onInputChangeTitle}
                         />
                         </div>
                  </div>
                 {/* 키링 검색 버튼 */}
-                <Button onClick={this.onButtonClick} color="secondary" variant="contained">키링 검색</Button>
+                <Button onClick={this.onButtonClick} style={{ backgroundColor: "#ff8849" }} color="secondary" variant="contained">키링 검색</Button>
                  
                 {/* 키링 검색 결과 */}
                 <div style={{padding: 8}} className="row">
@@ -65,7 +66,7 @@ class SearchKeyRing extends React.Component {
                             <ListItemText style={{textAlign: "center"}}>
                             <img 
                                     src={searchItem.imgUrl} 
-                                    alt={searchItem.title} 
+                                    alt={searchItem.title + '의 이미지'} 
                                     width="100" 
                                     height="100"
                                     />
