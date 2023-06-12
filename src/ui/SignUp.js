@@ -9,8 +9,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { Copyright } from "./Copyright";
-import { InputTextField } from "./InputTextField";
+import { Copyright } from "../component/Copyright";
+import { InputTextField } from "../component/style/InputTextField";
 
 class SignUp extends React.Component {
     constructor(props) {

@@ -9,16 +9,16 @@ import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Copyright } from "./ui/Copyright";
-import { KeyRingAppBar } from "./ui/KeyRingAppBar";
-import { MenuDrawer } from "./ui/MenuDrawer";
+import { Copyright } from "./component/Copyright";
+import { KeyRingAppBar } from "./component/style/KeyRingAppBar";
+import { MenuDrawer } from "./component/style/MenuDrawer";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import KeyRing from './component/KeyRing';
-import VerticalTabs from './ui/VerticalTabs';
+import KeyRing from './model/KeyRing';
+import VerticalTabs from './component/VerticalTabs';
 
 class App extends React.Component {
   constructor(props) {

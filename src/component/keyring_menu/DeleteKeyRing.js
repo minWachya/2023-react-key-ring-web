@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import { call } from "../service/ApiService";
-import { InputTextField } from "../ui/InputTextField";
+import { call } from "../../service/ApiService";
+import { InputTextField } from "../style/InputTextField";
 
 // 키링 삭제 컴포넌트
-class DeleteKeyRing extends React.Component {
+class DeleteKeyRing extends React.Component { 
     constructor(props) {
         super(props);
         // 삭제할 아이템 title 상태

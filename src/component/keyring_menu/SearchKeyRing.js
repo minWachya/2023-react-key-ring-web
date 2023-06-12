@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, ListItem, List, ListItemText } from "@material-ui/core";
-import { call } from "../service/ApiService";
-import { InputTextField } from "../ui/InputTextField";
+import { call } from "../../service/ApiService";
+import { InputTextField } from "../style/InputTextField";
 
 // 키링 검색 컴포넌트
 class SearchKeyRing extends React.Component {

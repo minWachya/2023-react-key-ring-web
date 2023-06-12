@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import AddKeyRing from '../component/AddKeyRing';
-import SearchKeyRing from '../component/SearchKeyRing';
-import ModifyKeyRing from '../component/ModifyKeyRing';
-import DeleteKeyRing from '../component/DeleteKeyRing';
+import AddKeyRing from './keyring_menu/AddKeyRing';
+import SearchKeyRing from './keyring_menu/SearchKeyRing';
+import ModifyKeyRing from './keyring_menu/ModifyKeyRing';
+import DeleteKeyRing from './keyring_menu/DeleteKeyRing';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import { InputTextField } from "../ui/InputTextField";
+import { InputTextField } from "../style/InputTextField";
 
 // 키링 생성 컴포넌트
 class AddKeyRing extends React.Component {
