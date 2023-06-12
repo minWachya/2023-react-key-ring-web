@@ -15,8 +15,11 @@ class ModifyKeyRing extends React.Component {
 
     // 키링 검색
     search = (item) => {
-        call("/keyring/search", "POST", item).then((response) => 
-            this.setState({searchItem: response.data[0]})
+        call("/keyring/search", "POST", item).then((response) => {
+            if(response.data[0]!=null)
+                this.setState({searchItem: response.data[0]})
+            else alert('검색 결과가 없습니다!');
+        }
         );
     };
 

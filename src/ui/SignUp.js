@@ -3,7 +3,6 @@ import { signup } from "../service/ApiService";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -11,6 +10,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { Copyright } from "./Copyright";
+import { InputTextField } from "./InputTextField";
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -62,14 +62,14 @@ class SignUp extends React.Component {
                     alignItems: 'center',
                   }}
                 >
-                  <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                  <Avatar sx={{ m: 1, bgcolor: '#69BE28' }}>
                     <LockOutlinedIcon />
                   </Avatar>
                   <Typography component="h1" variant="h5">
                     회원가입
                   </Typography>
                   <Box component="form" noValidate onSubmit={this.handleSubmit} sx={{ mt: 1 }}>
-                  <TextField
+                  <InputTextField
                       margin="normal"
                       required
                       fullWidth
@@ -79,7 +79,7 @@ class SignUp extends React.Component {
                       autoComplete="fname"
                       autoFocus
                     />
-                    <TextField
+                    <InputTextField
                       margin="normal"
                       required
                       fullWidth
@@ -89,7 +89,7 @@ class SignUp extends React.Component {
                       autoComplete="email"
                       autoFocus
                     />
-                    <TextField
+                    <InputTextField
                       margin="normal"
                       required
                       fullWidth
@@ -104,6 +104,8 @@ class SignUp extends React.Component {
                       fullWidth
                       variant="contained"
                       sx={{ mt: 3, mb: 2 }}
+                      style={{ backgroundColor: "#ff8849" }} 
+                      color="secondary" 
                     >
                       회원가입
                     </Button>

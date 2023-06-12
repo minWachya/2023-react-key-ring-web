@@ -16,9 +16,11 @@ class DeleteKeyRing extends React.Component {
     // 키링 검색 후 삭제하는 함수
     search = (item) => {
         // 검색
-        call("/keyring/search", "POST", item).then((response) => 
-            // 삭제
-            this.delete(response.data[0])
+        call("/keyring/search", "POST", item).then((response) => {
+            if(response.data.length !== 0)
+                this.delete(response.data[0])
+            else alert('해당 키링이 없습니다!');
+        }
         );
     };
 
