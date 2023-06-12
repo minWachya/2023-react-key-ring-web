@@ -42,6 +42,7 @@ export function call(api, method, request) {
         });
 }
 
+// 로그인
 export function signin(userDTO) {
     return call("/auth/signin", "POST", userDTO)
         .then((response) => {
@@ -52,10 +53,12 @@ export function signin(userDTO) {
         });
     }
 
+// 회원가입
 export function signup(userDTO) {
     return call("/auth/signup", "POST", userDTO);
     }
 
+// 로그아웃
 export function signout() {
     // 토큰 삭제
     localStorage.setItem(ACCESS_TOKEN, null);

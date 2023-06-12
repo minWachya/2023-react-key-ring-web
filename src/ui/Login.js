@@ -1,5 +1,4 @@
 import React from "react";
-import { signin } from "../service/ApiService";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { Copyright } from "../component/Copyright";
 import { InputTextField } from "../component/style/InputTextField";
+import { signin } from "../service/ApiService";
 
 class Login extends React.Component {
     constructor(props) {
@@ -27,7 +27,8 @@ class Login extends React.Component {
         const email = data.get("email");
         const password = data.get("password");
         // 요청
-        signin({email: email, password: password});
+        var response = signin({email: email, password: password});
+        if(response.data === undefined) alert('email, password를 다시 확인해주세요.');
     }
 
     render() {
