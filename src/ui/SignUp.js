@@ -28,11 +28,10 @@ class SignUp extends React.Component {
         const email = data.get("email");
         const password = data.get("password");
         // 요청
-        var response = signup({email: email,  username: username, password: password}).then((response) => {
+        signup({email: email,  username: username, password: password}).then((response) => {
           // 회원가입 성공 시 로그인 화면으로 이동
           window.location.href = "/login";
         });
-        if(response.data === undefined) alert('회원가입에 실패했습니다.');
     }
 
     render() {

@@ -27,8 +27,7 @@ class Login extends React.Component {
         const email = data.get("email");
         const password = data.get("password");
         // 요청
-        var response = signin({email: email, password: password});
-        if(response.data === undefined) alert('email, password를 다시 확인해주세요.');
+        signin({email: email, password: password});
     }
 
     render() {

@@ -34,7 +34,7 @@ export function call(api, method, request) {
         )
         // 로그인 안 한 상태일 때 로그인 화면으로 리다이렉트
         .catch((error) => {
-            console.log(error.status);
+            console.log("error: " + error.status);
             if(error.status === 403) {
                 window.location.href = "/login"; // redirect
             }

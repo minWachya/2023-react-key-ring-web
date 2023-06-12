@@ -15,7 +15,7 @@ class SearchKeyRing extends React.Component {
     // 키링 검색 함수
     search = (item) => {
         call("/keyring/search", "POST", item).then((response) => {
-            if(response.data[0]!=null)
+            if(response.data[0] != null)
                 this.setState({searchItem: response.data[0]})
             else alert('검색 결과가 없습니다!')
         } 
